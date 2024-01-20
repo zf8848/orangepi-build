@@ -51,3 +51,6 @@ external/cache/sources/wiringOP-Python
 external/cache/sources/rk3399_gst_xserver_libs
 external/cache/sources/arm-trusted-firmware-sunxi-mainline
 external/cache/debs/arm64/balena-etcher-electron_1.7.9+5945ab1f_arm64.deb
+
+.vscode-ctags
+
