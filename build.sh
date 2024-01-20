@@ -10,7 +10,16 @@
 # use configuration files like config-default.conf to set the build configuration
 # Please check Orange Pi documentation for more info
 #  http://www.orangepi.cn/downloadresourcescn
-#  http://www.orangepi.org/downloadresources
+#  http://www.orangepi.org/downloadresourcesexport http_proxy=http://127.0.0.1:9011/
+
+export HTTP_PROXY=http://127.0.0.1:9011/
+export https_proxy=http://127.0.0.1:9011/
+export HTTPS_PROXY=http://127.0.0.1:9011/
+export all_proxy=socks5://127.0.0.1:9011/
+export ALL_PROXY=socks5://127.0.0.1:9011/
+export no_proxy=localhost,127.0.0.0/8,::1
+export NO_PROXY=localhost,127.0.0.0/8,::1
+
 
 SRC="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
