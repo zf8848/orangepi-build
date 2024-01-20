@@ -64,7 +64,7 @@ elif [[ $BOARDFAMILY == "rockchip-rk3588" ]]; then
 	DDR_BLOB="${DDR_BLOB:=rk35/rk3588_ddr_lp4_2112MHz_lp5_2736MHz_v1.13.bin}"
 	BL31_BLOB='rk35/rk3588_bl31_v1.42.elf'
 
-elif [[ $BOARD =~ orangepicm4|orangepi3b ]]; then
+elif [[ $BOARD =~ orangepicm4|orangepi3b|pantherx2 ]]; then
 
         BOOT_SCENARIO="${BOOT_SCENARIO:=spl-blobs}"
 	BOOT_SOC=rk3568
@@ -169,7 +169,7 @@ uboot_custom_postprocess()
 		trust_merger --replace bl31.elf $RKBIN_DIR/$BL31_BLOB trust.ini
 
         elif [[ $BOOT_SCENARIO == "spl-blobs" || $BOOT_SCENARIO == "tpl-blob-atf-mainline" ]]; then
-		if [[ $BOARD =~ orangepicm4|orangepi3b ]]; then
+		if [[ $BOARD =~ orangepicm4|orangepi3b|pantherx2 ]]; then
 			tools/mkimage -n rk3568 -T rksd -d $RKBIN_DIR/$DDR_BLOB:spl/u-boot-spl.bin idbloader.img
 		fi
 
