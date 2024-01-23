@@ -19,6 +19,24 @@ cleanup_list() {
 }
 
 
+copy_pantherx2_uboot_files() {
+	local basedir="${1}"
+	local tmpdir="${2}"
+	local branch="${tmpdir#*branch:}"
+	local distdir="${basedir}"/"${branch}"
+
+	# display_alert "Copying pantherx2 u-boot files to:" "$distdir" "info"
+
+	cp "${EXTER}"/packages/blobs/pantherx2/pantherx2-rk3566_defconfig  "${distdir}"/configs/pantherx2-rk3566_defconfig
+}
+
+copy_pantherx2_kernel_files() {
+	local distdir="${1}"
+}
+
+copy_pantherx2_rootfs_files() {
+	local distdir="${1}"
+}
 
 
 if [[ $(basename "$0") == main.sh ]]; then
@@ -447,6 +465,12 @@ if [[ ${IGNORE_UPDATES} != yes ]]; then
 	display_alert "Downloading sources" "" "info"
 
 	[[ $BUILD_OPT =~ u-boot|image ]] && fetch_from_repo "$BOOTSOURCE" "$BOOTDIR" "$BOOTBRANCH" "yes"
+	# 复制 pantherx2 u-boot 的相关文件 ...
+	if [[ ${BOARD} =~ pantherx2 ]]; then
+		# display_alert "Copying pantherx2 u-boot files to:" "$BOOTSOURCE $BOOTDIR $BOOTBRANCH" "info"
+		[[ $BUILD_OPT =~ u-boot|image ]] && copy_pantherx2_uboot_files "$BOOTDIR" "$BOOTBRANCH"
+	fi
+
 	[[ $BUILD_OPT =~ kernel|image ]] && fetch_from_repo "$KERNELSOURCE" "$KERNELDIR" "$KERNELBRANCH" "yes"
 
 	if [[ -n ${ATFSOURCE} ]]; then
