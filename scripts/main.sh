@@ -27,7 +27,8 @@ copy_pantherx2_uboot_files() {
 
 	# display_alert "Copying pantherx2 u-boot files to:" "$distdir" "info"
 
-	cp "${EXTER}"/packages/blobs/pantherx2/pantherx2-rk3566_defconfig  "${distdir}"/configs/pantherx2-rk3566_defconfig
+	cp "${EXTER}"/packages/blobs/pantherx2/rk3566-pantherx2_defconfig  "${distdir}"/configs/rk3566-pantherx2_defconfig
+	cp "${EXTER}"/packages/blobs/pantherx2/rk3566-pantherx2.dts  "${distdir}"/arch/arm/dts/rk3566-pantherx2.dts
 }
 
 copy_pantherx2_kernel_files() {
