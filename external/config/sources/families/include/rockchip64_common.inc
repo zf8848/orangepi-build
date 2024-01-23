@@ -66,9 +66,9 @@ elif [[ $BOARDFAMILY == "rockchip-rk3588" ]]; then
 
 elif [[ $BOARD =~ orangepicm4|orangepi3b|pantherx2 ]]; then
 
-        BOOT_SCENARIO="${BOOT_SCENARIO:=spl-blobs}"
+    BOOT_SCENARIO="${BOOT_SCENARIO:=spl-blobs}"
 	BOOT_SOC=rk3568
-        DDR_BLOB="${DDR_BLOB:=rk35/rk3566_ddr_1056MHz_v1.10.bin}"
+    DDR_BLOB="${DDR_BLOB:=rk35/rk3566_ddr_1056MHz_v1.10.bin}"
 	BL31_BLOB='rk35/rk3568_bl31_v1.28.elf'
 
 else
