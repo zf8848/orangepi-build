@@ -20,6 +20,7 @@ export ALL_PROXY=socks5://127.0.0.1:9011/
 export no_proxy=localhost,127.0.0.0/8,::1
 export NO_PROXY=localhost,127.0.0.0/8,::1
 export ORANGEPI_ENABLE_CALL_TRACING=yes
+export CLEAN_LEVEL=make
 
 SRC="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 

@@ -54,3 +54,5 @@ external/cache/debs/arm64/balena-etcher-electron_1.7.9+5945ab1f_arm64.deb
 
 .vscode-ctags
 
+# ./u-boot/v2017.09-rk3588/arch/arm/dts/rk3566-pantherx2.dts
+# ./u-boot/v2017.09-rk3588/configs/rk3566-pantherx2_defconfig
