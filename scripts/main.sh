@@ -259,6 +259,7 @@ if [[ -z $BOARD ]]; then
 	#options+=("orangepitab"                 "Rockchip  RK3588S octa core 4-16GB RAM USB-C WiFi/BT NVMe")
 	#options+=("orangepi900"                 "Rockchip  RK3588 octa core 4-16GB RAM 2.5GBE USB3 USB-C WiFi/BT NVMe")
 	#options+=("orangepi5pro"                 "Rockchip  RK3588S octa core 4-32GB RAM GBE USB3 WiFi/BT NVMe eMMC")
+	#options+=("orangepi5max"                 "Rockchip  RK3588 octa core 4-32GB RAM 2.5GBE USB3 USB-C WiFi/BT NVMe eMMC")
 	options+=("orangepi5plus"                 "Rockchip  RK3588 octa core 4-32GB RAM 2.5GBE USB3 USB-C WiFi/BT NVMe eMMC")
 	options+=("orangepicm4"                 "Rockchip  RK3566 quad core 2-8GB RAM GBE eMMC USB3 NvMe WiFi/BT")
 	options+=("orangepi3b"                  "Rockchip  RK3566 quad core 2-8GB RAM GBE eMMC USB3 NvMe WiFi/BT")
@@ -525,6 +526,12 @@ if [[ ${IGNORE_UPDATES} != yes ]]; then
 	*build needed tools for the build, host-side*
 	After sources are fetched, build host-side tools needed for the build.
 	BUILD_HOST_TOOLS
+
+	if [[ ${BOARDFAMILY} == "rockchip-rk3588" ]]; then
+		local rkbin_url="https://github.com/orangepi-xunlong/rk-rootfs-build/raw/rkbin/rk35"
+		wget -qnc -P ${EXTER}/cache/sources/rkbin-tools/rk35/ ${rkbin_url}/rk3588_ddr_lp4_2112MHz_lp5_2736MHz_v1.15.bin
+		wget -qnc -P ${EXTER}/cache/sources/rkbin-tools/rk35/ ${rkbin_url}/rk3588_bl31_v1.44.elf
+	fi
 
 fi
 

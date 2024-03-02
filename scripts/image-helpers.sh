@@ -253,7 +253,7 @@ dpkg_install_debs_chroot()
 
 	[ ! -d "$deb_dir" ] && return
 
-	deb_packages=($(find "${deb_dir}" -type f -name "*.deb"))
+	deb_packages=($(find "${deb_dir}/" -mindepth 1 -maxdepth 1 -type f -name "*.deb"))
 
 	find_in_array() {
 		local target="$1"
@@ -302,7 +302,7 @@ dpkg_install_debs_chroot()
 
 	if [[ ! -z "${unsatisfied_dependencies[*]}" ]]; then
 		display_alert "Installing Dependencies" "${unsatisfied_dependencies[*]}"
-		chroot $SDCARD /bin/bash -c "apt-get update; apt-get -y -qq install ${unsatisfied_dependencies[*]}" >> "${DEST}"/${LOG_SUBPATH}/install.log 2>&1
+		chroot $SDCARD /bin/bash -c "apt-get -y -qq install ${unsatisfied_dependencies[*]}" >> "${DEST}"/${LOG_SUBPATH}/install.log 2>&1
 	fi
 
 	local names=""
